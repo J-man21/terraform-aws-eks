@@ -2,6 +2,7 @@ module "eks" {
   source       = "terraform-aws-modules/eks/aws"
   cluster_name = local.cluster_name
   subnets      = module.vpc.private_subnets
+  enable_irsa = true
 
   tags = {
     Environment = "training"
