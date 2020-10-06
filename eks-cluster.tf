@@ -1,7 +1,8 @@
 module "eks" {
   source       = "terraform-aws-modules/eks/aws"
-  cluster_name = local.cluster_name
-  subnets      = module.vpc.private_subnets
+  cluster_version = "1.17"
+  cluster_name = var.cluster_name
+  subnets      = var.vpc_private_subnets
   enable_irsa = true
 
   tags = {
@@ -10,7 +11,7 @@ module "eks" {
     GithubOrg   = "terraform-aws-modules"
   }
 
-  vpc_id = module.vpc.vpc_id
+  vpc_id = var.vpc_id
 
   worker_groups = [
     {
