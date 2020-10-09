@@ -3,7 +3,7 @@ locals {
 }
 
 terraform {
-  source = "../../../../modules/vpc"
+  source = "github.com/hekonsek/clails-vpc?ref=0.0.0"
 }
 
 include {
